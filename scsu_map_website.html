@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+
+
+
+
+<!-- Allows the content to be resized/rescaled based on what device one is using -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<body>
+
+
+
+
+
+
+
+<!--Make sure you always comment your code so we know what each other is thinking/doing!! -->
+
+
+
+
+
+
+
+<!-- Main page heading -->
+
+
+
+<div>
+
+	
+
+<img src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/3/005/0a7/103/0bf98f5.png" align="left"/>
+
+    
+
+<img src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/3/005/0a7/103/0bf98f5.png" align="right"/> 
+
+    
+
+<h1 style="color:navy;text-align:center">Southern Connecticut State University <br>Interactive Campus Map</h1>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Adding the SCSU PDF map to the webpage 
+
+NOTE: THIS IS SAVED ON MY WORK LAPTOP, YOU NEED TO SAVE THE PDF AS AN IMAGE AND CHANGE THE FILE PATH SO IT DISPLAYS FOR YOU-->
+
+
+
+<img src="c:\users\212476280\desktop\SCSU Map.PNG" alt="SCSU map" usemap="#SCSU_PDF_Map" style="max-width:100%;height:auto;">
+
+
+
+<!-- Adding a clickable section to the SCSU PDF picture that pulls up a diferent picture, or any link -->
+
+<!-- This next part displays a "tooltip" when you hover over a specified portion of the map 
+
+In my example, if you start at the top left (0,0) and hover anywhere 500 pixels down or to the right, you will see the 
+
+test being displayed-->
+
+
+
+<map name="SCSU_PDF_Map">
+
+	<area shape="rect" coords="0,0,500,500" alt="Test building" title="This is a test" href="https://www.google.com">
+
+</map>
+
+
+
+
+
+<!-- Just adding a line break and a line after the main heading -->
+
+
+
+<br>
+
+
+
+<hr>
+
+
+
+<br>
+
+
+
+
+
+
+
+<!-- 
+
+
+
+MENU BAR
+
+
+
+
+
+Stole the code from here:
+
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar
+
+
+
+
+
+
+
+Not even really sure what everything does
+
+-->
+
+
+
+
+
+
+
+<style>
+
+
+
+ul {
+
+    
+
+list-style-type: none;
+
+    
+
+margin: 0;
+
+    
+
+padding: 0;
+
+    
+
+overflow: hidden;
+
+    
+
+background-color: #333;
+
+
+
+}
+
+
+
+
+
+
+
+li {
+
+    
+
+float: left;
+
+
+
+
+
+}
+
+
+
+li a, .dropbtn {
+
+    
+
+display: inline-block;
+
+    
+
+color: white;
+
+    
+
+text-align: center;
+
+    
+
+padding: 14px 16px;
+
+    
+
+text-decoration: none;
+
+}
+
+
+
+
+
+
+
+li a:hover, .dropdown:hover .dropbtn {
+
+    
+
+background-color: red;
+
+
+
+}
+
+
+
+
+
+
+
+li.dropdown {
+
+
+
+    display: inline-block;
+
+}
+
+
+
+
+
+.dropdown-content {
+
+    
+
+display: none;
+
+    
+
+position: absolute;
+
+    
+
+background-color: #f9f9f9;
+
+    
+
+min-width: 160px;
+
+    
+
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+    
+
+z-index: 1;
+
+}
+
+
+
+
+
+
+
+.dropdown-content a {
+
+    
+
+color: black;
+
+    
+
+padding: 12px 16px;
+
+    
+
+text-decoration: none;
+
+    
+
+display: block;
+
+    
+
+text-align: left;
+
+}
+
+
+
+
+
+
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+
+
+
+
+.dropdown:hover .dropdown-content {
+
+    display: block;
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+<ul>
+
+  
+
+<li><a href="#home">Home</a>
+
+</li>
+
+  <li class="dropdown">
+
+    
+
+<a href="javascript:void(0)" class="dropbtn">Buildings</a>
+
+    
+
+<div class="dropdown-content">
+
+      
+
+<a href="#">Morrill Hall (MO)</a>
+
+      
+
+<a href="#">Engleman Hall (EN)</a>
+
+      
+
+<a href="#">Jennings Hall (JE)</a>
+
+    
+
+</div>
+
+  
+
+</li>
+
+  
+
+<li class="dropdown">
+
+    
+
+<a href="javascript:void(0)" class="dropbtn">Parking Lots</a>
+
+    
+
+<div class="dropdown-content">
+
+      
+
+<a href="#">Faculty</a>
+
+      
+
+<a href="#">Graduate</a>
+
+      
+
+<a href="#">Undergraduate</a>
+
+    
+
+</div>
+
+  
+
+</li>
+
+  
+
+<li><a href="#help">Help</a></li>
+
+
+
+</ul>
+
+
+
+
+
+
+
+<!-- ADDING GOOGLE MAPS API
+
+
+
+
+
+Literally copied this code from here: 
+
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_google_map_4
+
+
+
+
+
+All I edited was the Latitude/Longitude, the width/height, and the zoom.
+
+
+
+I was just playing around.
+
+
+
+-->
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div id="map" style="width:600px;height:600px;background:yellow">
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+function myMap() {
+
+var mapOptions = {
+
+    center: new google.maps.LatLng(41.3326410, -72.9481677),
+
+    
+
+zoom: 16,
+
+    
+
+mapTypeId: google.maps.MapTypeId.HYBRID
+
+}
+
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+
+//adding police station marker
+
+var marker = new google.maps.Marker({
+ position:{lat:41.333555,lng:-72.951545},
+map:map,
+icon:'http://maps.google.com/mapfiles/kml/pal2/icon8.png'
+});
+
+
+
+//adding info window to show that its the police station
+
+
+var infoWindow = new google.maps.InfoWindow({
+ content:'<h3>SCSU Police Departmart</h>'
+});
+
+marker.addListener('click', function(){
+ infoWindow.open(map, marker);
+});
+
+ 
+}
+
+
+
+</script>
+
+<script>
+  function initMap() {
+    var uluru = {lat: -25.363, lng: 131.044};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+</script>
+
+
+
+
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOha51O2UNapWWL29M00OyZLlnoWC3Gt8&callback=myMap"></script>
+
+
+
+
+
+<!--
+
+To use this code on your website, get a free API key from Google.
+
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+
+-->
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
